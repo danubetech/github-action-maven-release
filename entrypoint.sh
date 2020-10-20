@@ -9,4 +9,5 @@ mvn release:clean \
     release:perform \
     -DreleaseVersion="$INPUT_RELEASE_VERSION" \
     -DdevelopmentVersion="$INPUT_DEVELOPMENT_VERSION" \
-    -Dtag="$INPUT_TAG" --settings /settings.xml
+    -Dtag="$INPUT_TAG" --settings /settings.xml \
+    -Dusername="$GITHUB_TOKEN"
