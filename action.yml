@@ -1,0 +1,28 @@
+name: maven-deploy
+description: Run maven deploy lifecycle step
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.server_id }}
+    - ${{ inputs.path_to_pom }}
+    - ${{ inputs.release_version }}
+    - ${{ inputs.development_version }}
+    - ${{ inputs.tag }}
+inputs:
+  server_id:
+    description: Maven server id
+    required: false
+  path_to_pom:
+    description: Folder where pom.xml is located
+    required: false
+    default: /github/workspace
+  release_version:
+    description: Version of release
+    required: false
+  development_version:
+    description: Version of next Snapshot for release branch
+    required: false
+  tag:
+    description: Name of release tag
+    required: false
